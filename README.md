@@ -3,7 +3,7 @@ A Dynamically Linked Shared Object Library for memory allocation.
 
 
 ## Test Bench
-For running Tree test bench
+Faor running Tree test bench
 run:    ./run_Clang.sh
             OR
         make runtree
@@ -16,11 +16,11 @@ run:    ./2run_Clang.sh
 
 
 ### Description of files
-Shared Library code:
+Shaared Library code:
     mull.c, mull.h
 
 Tree testbench:
     bench_tree.c
 
-Llist testbench:
+Linked list testbench:
     bench_list.c
