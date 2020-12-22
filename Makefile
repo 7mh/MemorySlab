@@ -1,9 +1,7 @@
 CC=gcc
 
-clean:
-	rm -f *.o
 
-all: runtree runlist
+default: runtree
 
 mull.o:mull.c mull.h
 	$(CC) -c -fpic $^ 
@@ -14,13 +12,16 @@ libmull.so:mull.o
 
 runtree: export LD_LIBRARY_PATH = $(shell pwd)
 runtree:libmull.so
-	$(CC) -g -L. -I. -o myapp_tree slabbench.c -lmull
+	$(CC) -g -L. -I. -o myapp_tree bench_tree.c -lmull
 	./myapp_tree
 
 
 runlist: export LD_LIBRARY_PATH = $(shell pwd)
 runlist:libmull.so
-	$(CC) -g -L. -I. -o myapp_list myapp2.c -lmull
+	$(CC) -g -L. -I. -o myapp_list bench_list.c -lmull
 	./myapp_list
 
+.PHONY: default clean
 
+clean:
+	rm -f *.o

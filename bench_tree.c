@@ -4,7 +4,7 @@
 #include <string.h>
 #include "mull.h"
 
-#define N   1000L
+#define N   100L
 /*
 #ifdef DEBUG
 #define N   1048576L
@@ -26,11 +26,11 @@
  * 48.298u 0.261s 0:48.60 99.8%	0+0k 0+0io 0pf+0w
 */
 
-// redefine these to use your library
+// redefine these in library
 
 #define ALLOCATIONMACRO(X)  mulloc(X)
 #define INITMACRO(X)        mullinit(X)
-//#define FREEMACRO(X)        mullfree(X)
+#define FREEMACRO(X)        mullfree(X)
 
 typedef struct node {
     long x;
@@ -40,7 +40,7 @@ typedef struct node {
 TREENODE *makeleaf(int x);
 long countnodes(TREENODE *t);
 void hang(TREENODE *parent, long x);
-//void freetree(TREENODE *t);
+void freetree(TREENODE *t);
 
 int id;
 int count = 0;
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
     printf("%ld nodes made, count: %d\n", countnodes(root), count);
 
-    //freetree(root);
+    freetree(root);
 }
 TREENODE *makeleaf(int x)
 {
@@ -74,7 +74,6 @@ TREENODE *makeleaf(int x)
 
     t = (TREENODE *) ALLOCATIONMACRO(id);
     count ++;
-    //if (t == )
     t->x = x;
     t->left = t->right = 0;
     return t;
@@ -107,7 +106,7 @@ long countnodes(TREENODE *t)
         return 0L;
     return 1L + countnodes(t->left) + countnodes(t->right);
 }
-/*
+
 void freetree(TREENODE *t)
 {
     if(t == 0)
@@ -116,5 +115,5 @@ void freetree(TREENODE *t)
     freetree(t->right);
     FREEMACRO(t);
 }
-*/
+
 

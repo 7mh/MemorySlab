@@ -224,7 +224,7 @@ void mullfree(void * tcur){
         missed++;
     }
     }
-    printf("\n\nFree STATUS !!!! alreadyfreed_count: %d, missed: %d cur: %p\n", freed,missed, cur);
+    printf("\n\nFree STATUS !!!! alreadyfreed_count: %d, Null: %d cur: %p\n", freed,missed, cur);
 
     //printf("Blocks Freed: %ld, ptr: %p \t end:%p \n", countf, tcur, tcur+(3*16));
 

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "mull.h"
-#define MAXNODES 10
+#define MAXNODES 100
 
 typedef struct AppNode{
     long data1;
